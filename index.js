@@ -12,15 +12,14 @@ const pets = [
   { id: 2, name: 'Sharay', owner: 'iAm' },
   { id: 2, name: 'Tiffany', owner: 'Allah' },
   { id: 2, name: 'RuJay', owner: 'jehovah' },
-
 ];
 
-// create dndpoint to get all pets
+// create endpoint to get all pets
 app.get('/pets', (req, res) => {
   res.json(pets);
 });
 
-// create ndpoint to get pets by name
+// create endpoint to get pets by name
 app.get('/pets/:name', (req, res) => {
   const petName = req.params.name;
   const filteredPets = pets.filter((pet) => pet.name === petName);
@@ -34,6 +33,7 @@ app.get('/pets/owner/:ownerName', (req, res) => {
   res.json(filteredPets);
 });
 
+// start server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
